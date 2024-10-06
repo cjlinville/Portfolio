@@ -1,9 +1,8 @@
-import type { GatsbyConfig, PluginRef } from "gatsby"
-import "dotenv/config"
+require("dotenv/config");
 
-const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
+const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE;
 
-const config: GatsbyConfig = {
+module.exports = {
   siteMetadata: {
     // You can overwrite values here that are used for the SEO component
     // You can also add new values here to query them like usual
@@ -17,7 +16,6 @@ const config: GatsbyConfig = {
     siteLanguage: `en`,
     author: `@lekoarts_de`,
   },
-  trailingSlash: `always`,
   plugins: [
     {
       resolve: `@lekoarts/gatsby-theme-jodie`,
@@ -71,7 +69,5 @@ const config: GatsbyConfig = {
         open: false,
       },
     },
-  ].filter(Boolean) as Array<PluginRef>,
-}
-
-export default config
+  ].filter(Boolean),
+};
